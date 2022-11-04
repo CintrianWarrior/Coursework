@@ -8,16 +8,16 @@ public class Main {
             System.out.println(employees[i]);
         }
     }
-    public static void salarySum(Employee[] employees) {
+    public static int salarySum(Employee[] employees) {
         int sum = 0;
         for (int i = 0; i < employees.length; i++) {
             sum = sum + employees[i].getEmployeeSalary();
         }
-        System.out.println("Сумма трат на зарплаты в месяц " + sum + " рублей.");
+        return sum;
         }
 
     public static void minEmployeeSalary(Employee[] employees) {
-        int minSalary = 1_000_000_000;
+        int minSalary = employees[0].getEmployeeSalary();
         Employee minSalaryEmployee = employees[0];
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getEmployeeSalary() < minSalary) {
@@ -29,7 +29,7 @@ public class Main {
     }
 
     public static void maxEmployeeSalary(Employee[] employees) {
-        int maxSalary = -1;
+        int maxSalary = employees[0].getEmployeeSalary();
         Employee maxSalaryEmployee = employees[0];
         for (int i = 0; i < employees.length; i++) {
             if (employees[i].getEmployeeSalary() > maxSalary) {
@@ -39,13 +39,9 @@ public class Main {
         }
         System.out.println(maxSalaryEmployee);
     }
-    public static void averageSalary(Employee[] employees) {
-        int sum = 0;
-        for (int i = 0; i < employees.length; i++) {
-            sum = sum + employees[i].getEmployeeSalary();
-        }
-        double averageSalary = (double) sum/employees.length;
-        System.out.println("Среднее значение зарплат " + averageSalary + " рублей.");
+    public static double averageSalary(Employee[] employees) {
+        double averageSalary = (double) salarySum(employees)/employees.length;
+        return averageSalary;
     }
 
     public static void printAllEmployeesNames(Employee[] employees) {
@@ -72,12 +68,14 @@ public class Main {
         printAllEmployees(employee);
         printSeparator();
         salarySum(employee);
+        System.out.println(salarySum(employee));
         printSeparator();
         minEmployeeSalary(employee);
         printSeparator();
         maxEmployeeSalary(employee);
         printSeparator();
         averageSalary(employee);
+        System.out.println(averageSalary(employee));
         printSeparator();
         printAllEmployeesNames(employee);
     }

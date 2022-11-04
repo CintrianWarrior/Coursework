@@ -6,17 +6,22 @@ public class Employee {
     private int employeeSalary;
     private static int idCounter;
     private int id;
+
     public Employee(String employeeName, int departmentNumber, int employeeSalary) {
-        this.id = idCounter = idCounter+1;
+        this.id = idCounter++;
         this.employeeName = employeeName;
-        if (departmentNumber <= 5 && departmentNumber>0) {
-            this.departmentNumber = departmentNumber;
-        }
+        this.departmentNumber = departmentNumber;
         this.employeeSalary = employeeSalary;
     }
 
     public int getId() {
         return this.id;
+    }
+
+    public static int departmentNumberLimit(int departmentNumber) {
+        if (departmentNumber <= 5 && departmentNumber > 0) {
+        }
+        return departmentNumber;
     }
 
     public String getEmployeeName() {
